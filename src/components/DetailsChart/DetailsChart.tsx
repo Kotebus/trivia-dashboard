@@ -1,4 +1,4 @@
-import {use} from "react";
+import {type JSX, use} from "react";
 import {Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip} from "recharts";
 import {AccessibilityContext} from "../../providers/AccessibilityProvider/AccessibilityContext.tsx";
 import type {ChartDataItem} from "../../types/ChartDataItem.ts";
@@ -12,7 +12,7 @@ interface DetailsChartProps {
     chartData: ChartDataItem[];
 }
 
-export const DetailsChart = ({chartData}: DetailsChartProps) => {
+export const DetailsChart = ({chartData}: DetailsChartProps): JSX.Element | null => {
 
     const {isHighContrast, isMotionReduced} = use(AccessibilityContext);
 
@@ -20,7 +20,9 @@ export const DetailsChart = ({chartData}: DetailsChartProps) => {
         return null;
     }
 
-    const colors = isHighContrast ? COLORS_FOR_DIFFICULTIES.contrast : COLORS_FOR_DIFFICULTIES.regular;
+    const colors = isHighContrast ?
+        COLORS_FOR_DIFFICULTIES.contrast : COLORS_FOR_DIFFICULTIES.regular;
+
     return (
         <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
 

@@ -1,9 +1,10 @@
+import type {JSX} from "react";
 import {Loader} from 'react-feather';
 import styles from './Spinner.module.css';
 
 const SPINNER_SIZE = 24;
 
-export const Spinner = () => {
+export const Spinner = (): JSX.Element => {
     return (
         <span
             className={styles.loader}

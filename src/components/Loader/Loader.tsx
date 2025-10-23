@@ -1,8 +1,9 @@
+import type {JSX} from "react";
 import {Spinner} from "../Spinner/Spinner.tsx";
 import {VisuallyHidden} from "../VisuallyHidden/VisuallyHidden.tsx";
 import styles from "./Loader.module.css";
 
-export const Loader = () => {
+export const Loader = (): JSX.Element => {
     return (
         <div
             className={styles.loader}

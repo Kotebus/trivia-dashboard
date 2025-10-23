@@ -1,4 +1,4 @@
-import {type ReactNode, useState} from "react";
+import {type JSX, type ReactNode, useState} from "react";
 import type {SortingType} from "../../AppConfig.ts";
 import type {ChartDataItem} from "../../types/ChartDataItem.ts";
 import type {DataItem} from "../../types/DataItem.ts";
@@ -24,14 +24,14 @@ interface DynamicDashboardProps {
 }
 
 export const DashboardWithFiltration = ({
-                                     data,
-                                     allSlicesLabel,
-                                     isDataFromApiUndefined,
-                                     error,
-                                     staticPieChart,
-                                     mainChartData,
-                                     sortingType,
-                                 }: DynamicDashboardProps) => {
+                                            data,
+                                            allSlicesLabel,
+                                            isDataFromApiUndefined,
+                                            error,
+                                            staticPieChart,
+                                            mainChartData,
+                                            sortingType,
+                                        }: DynamicDashboardProps): JSX.Element => {
 
     const [activeSlice, setActiveSlice] = useState<ActiveSlice | undefined>(undefined);
 

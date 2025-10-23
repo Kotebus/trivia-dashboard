@@ -1,4 +1,4 @@
-import {useMemo} from "react";
+import {type JSX, useMemo} from "react";
 import type {SortingType} from "../../AppConfig.ts";
 import type {DataItem, DataItemFieldSelectorType} from "../../types/DataItem.ts";
 import {getDataWithCounts} from "../../utils.ts";
@@ -19,7 +19,7 @@ export const DetailsBySliceChart = ({
                                         data,
                                         allSlicesLabel,
                                         sortingType
-}: DetailedBySliceChartProps) => {
+}: DetailedBySliceChartProps): JSX.Element => {
 
         const filteredData = useMemo(
             () => slice ? data.filter(x => x.mainSlice === slice) : data,

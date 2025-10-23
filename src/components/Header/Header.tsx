@@ -1,3 +1,4 @@
+import type {JSX} from "react";
 import styles from './Header.module.css';
 
 interface HeaderProps {
@@ -5,7 +6,7 @@ interface HeaderProps {
     subtitle?: string;
 }
 
-export const Header = ({title, subtitle}: HeaderProps) => {
+export const Header = ({title, subtitle}: HeaderProps): JSX.Element => {
     return (
         <header className={styles.header}>
 

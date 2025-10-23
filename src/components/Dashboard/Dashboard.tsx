@@ -1,4 +1,4 @@
-import {useMemo} from "react";
+import {type JSX, useMemo} from "react";
 import useSWR, {type Fetcher} from "swr";
 import {API_CONFIG} from "../../api/ApiConfig.ts";
 import {fetchQuestions} from "../../api/TriviaApi.ts";
@@ -25,14 +25,14 @@ export const Dashboard = ({
                               allDataLabel,
                               sourceData,
                               sortingType
-}: DashboardProps) => {
+                          }: DashboardProps): JSX.Element => {
 
     const {data, isLoading, error} = useSWR<DataItem[], Error>(
         sourceData ? null : [API_CONFIG.QUESTIONS_REQUEST_KEY, fetchDataAmount],
         fetcher
     );
 
-    const cleanedData =  useMemo(
+    const cleanedData = useMemo(
         () => getHtmlDecodedMainSliceData(sourceData ?? data ?? []),
         [data, sourceData]
     );

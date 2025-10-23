@@ -1,4 +1,4 @@
-import {type ChangeEvent, useId} from "react";
+import {type ChangeEvent, type JSX, useId} from "react";
 import styles from "./MainSliceSelection.module.css";
 
 interface MainSliceSelectionProps {
@@ -11,7 +11,7 @@ const ALL_SLICES_VALUE = 'all';
 
 export const MainSliceSelection = (
     {slicesList, activeSliceName = ALL_SLICES_VALUE, selectSlice}: MainSliceSelectionProps
-) => {
+): JSX.Element => {
 
     const selectionId = "main-slice-select-" + useId();
 

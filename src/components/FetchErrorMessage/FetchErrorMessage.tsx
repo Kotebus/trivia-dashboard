@@ -1,9 +1,11 @@
+import type {JSX} from "react";
 import {API_CONFIG} from "../../api/ApiConfig.ts";
 
 interface FetchErrorMessageProps {
     message: string;
 }
-export const FetchErrorMessage = ({message}: FetchErrorMessageProps) => {
+
+export const FetchErrorMessage = ({message}: FetchErrorMessageProps): JSX.Element => {
     return (
         <div role='alert'>
 

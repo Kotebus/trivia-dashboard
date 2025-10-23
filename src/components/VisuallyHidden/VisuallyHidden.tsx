@@ -1,4 +1,4 @@
-import type {AriaAttributes, PropsWithChildren} from "react";
+import type {AriaAttributes, JSX, PropsWithChildren} from "react";
 import style from "./VisuallyHidden.module.css";
 
 // These styles will make sure the component
@@ -30,7 +30,10 @@ interface VisuallyHiddenProps extends PropsWithChildren {
  * </VisuallyHidden>
  * ```
  */
-export const VisuallyHidden = ({children, ariaLive}: VisuallyHiddenProps) => (
+export const VisuallyHidden = ({
+                                   children,
+                                   ariaLive
+                               }: VisuallyHiddenProps): JSX.Element => (
     <span aria-live={ariaLive} className={style.hidden}>
         {children}
     </span>

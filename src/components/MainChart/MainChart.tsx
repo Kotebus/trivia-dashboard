@@ -1,4 +1,4 @@
-import {use, useCallback} from "react";
+import {type JSX, use, useCallback} from "react";
 import {Bar, BarChart, Cell, Tooltip, XAxis, YAxis} from 'recharts';
 import type {BarRectangleItem} from "recharts/types/cartesian/Bar";
 import {AccessibilityContext} from "../../providers/AccessibilityProvider/AccessibilityContext.tsx";
@@ -18,7 +18,7 @@ interface Props {
 
 const formatNameInXAxis = (name: string) => name.length > MAX_NAME_LENGTH ? name.slice(0, MAX_NAME_LENGTH) + "..." : name;
 
-export const MainChart = ({chartData, activeIndex, setActiveIndex}: Props) => {
+export const MainChart = ({chartData, activeIndex, setActiveIndex}: Props): JSX.Element => {
     const accessibilityContext = use(AccessibilityContext);
 
     const handleOnBarClick = useCallback(
