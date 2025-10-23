@@ -55,22 +55,26 @@ API configuration can be found in [ApiConfig.ts](src/api/ApiConfig.ts).
 
 ## Integration challenges
 
-Keeping in mind the objectives of the project I am applying for, I tried to expose this solution as a configurable
-component.
+Keeping in mind the technical requirements and possibility of further integration into larger code base, I tried to expose this solution as a configurable component.
+
+### ***How***
+
+The component should be extracted as a standalone package that exports the main part and can be used as-is in any React application. The package would handle all visualization logic internally while accepting data and configuration through props.
 
 ### ***Key challenges***
 
-1. **Scalability**  
-   The current implementation assumes moderate data variance (10-20 categories, 3-5 difficulty levels). This visual
-   solution is designed for a certain variability of the sample.
-2. **Data contracts**  
-   The tool operates on string names rather than IDs due to the Trivia API structure. Production systems require
-   ID-based operations and normalized data models (`{id, name}`).
-3. **UI consistency**  
-   No design system integration exists. The component needs theming support (colors, fonts etc.) to match host
-   application styles.
+1. **Code standardization**  
+   All code needs to be aligned with the standards of the target codebase.
+
+2. **Testing infrastructure**  
+   The component needs comprehensive test coverage (unit and integration tests).
+
+3. **Scalability**  
+   The current implementation assumes moderate data variance (10-20 categories, 3-5 difficulty levels). Consider additional testing for large data sets performance.
+
+4. **UI consistency**  
+   No design system integration exists. The component needs theming support (colors, fonts etc.) to match host application styles.
 
 ### **Summary**
 
-To integrate, this component needs to be made more abstract, the logic for receiving and cleaning data needs to be
-removed from it, and support for IDs and configurability of styles needs to be added.
+To integrate, this component needs to be made more abstract, the logic for receiving and cleaning data needs to be removed from it, and support for IDs and configurability of styles needs to be added.
