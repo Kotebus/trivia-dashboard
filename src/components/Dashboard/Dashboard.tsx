@@ -47,7 +47,7 @@ export const Dashboard = ({
 
     return (
         <DashboardWithFiltration
-            isDataFromApiUndefined={data === undefined}
+            isDataFromApiUndefined={data === undefined && sourceData === undefined}
             error={error}
             data={cleanedData}
             mainChartData={mainChartData}

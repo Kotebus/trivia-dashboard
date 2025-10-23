@@ -14,6 +14,11 @@ interface ActiveSlice {
 }
 
 interface DynamicDashboardProps {
+    /**
+     * Indicates whether data from the API is undefined.
+     * Used to handle the case when there is an error but data is still available
+     * (e.g., from cache or previous successful fetch).
+     */
     isDataFromApiUndefined: boolean;
     error?: Error;
     data: DataItem[];
