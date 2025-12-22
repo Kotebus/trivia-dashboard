@@ -7,7 +7,7 @@ import type {DataItem, DataItemFieldSelectorType} from "./types/DataItem.ts";
  * Counts occurrences of values extracted from array items using a selector function.
  *
  * @param data - Array of items to process
- * @param selector - Function to extract the value to count from each item. Make sure it's defined above your component,
+ * @param selector - Function to extract the value to count from each item. Make sure it's defined above your component
  * to avoid rerenders.
  * @returns Map with values as keys and their occurrence counts as values
  */
@@ -68,3 +68,7 @@ export const getHtmlDecodedMainSliceData =
                 mainSlice: decode(item.mainSlice),
             }));
     }
+
+const checkMediaQuery = (query: string) => window?.matchMedia?.(query).matches;
+export const getIsHighContrast = () => checkMediaQuery("(prefers-contrast: more)");
+export const getIsMotionReduced = () => checkMediaQuery("(prefers-reduced-motion: reduce)");

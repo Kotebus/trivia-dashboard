@@ -3,7 +3,6 @@ import {API_CONFIG} from "./api/ApiConfig.ts";
 import {type AppConfig, defaultAppConfig} from "./AppConfig.ts";
 import {Dashboard} from "./components/Dashboard/Dashboard.tsx";
 import {Header} from "./components/Header/Header.tsx";
-import {AccessibilityProvider} from "./providers/AccessibilityProvider/AccessibilityProvider.tsx";
 import type {DataItem} from "./types/DataItem.ts";
 
 /**
@@ -27,21 +26,19 @@ export const App = ({
             errorRetryInterval: API_CONFIG.ERROR_RETRY_INTERVAL,
             errorRetryCount: API_CONFIG.ERROR_RETRY_COUNT,
         }}>
-            <AccessibilityProvider>
-                {appConfig.header && (
-                    <Header
-                        title={appConfig.header.title}
-                        subtitle={appConfig?.header.subtitle}
-                    />)
-                }
+            {appConfig.header && (
+                <Header
+                    title={appConfig.header.title}
+                    subtitle={appConfig?.header.subtitle}
+                />)
+            }
 
-                <Dashboard
-                    sourceData={data}
-                    fetchDataAmount={appConfig.fetchDataAmount}
-                    allDataLabel={appConfig.allMainSlicesLabel}
-                    sortingType={appConfig.sorting}
-                />
-            </AccessibilityProvider>
+            <Dashboard
+                sourceData={data}
+                fetchDataAmount={appConfig.fetchDataAmount}
+                allDataLabel={appConfig.allMainSlicesLabel}
+                sortingType={appConfig.sorting}
+            />
         </SWRConfig>
     );
 }

@@ -1,8 +1,8 @@
-import {type JSX, use} from "react";
+import {type JSX} from "react";
 import {Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip} from "recharts";
-import {AccessibilityContext} from "../../providers/AccessibilityProvider/AccessibilityContext.tsx";
 import type {ChartDataItem} from "../../types/ChartDataItem.ts";
 import {type Difficulty} from "../../types/DataItem.ts";
+import {getIsHighContrast, getIsMotionReduced} from "../../utils.ts";
 import {COLORS_FOR_DIFFICULTIES, getColorForIndex} from "./DetailsChartHelper.ts";
 
 const CHART_HEIGHT = 250;
@@ -14,12 +14,12 @@ interface DetailsChartProps {
 
 export const DetailsChart = ({chartData}: DetailsChartProps): JSX.Element | null => {
 
-    const {isHighContrast, isMotionReduced} = use(AccessibilityContext);
-
     if (chartData.length === 0) {
         return null;
     }
 
+    const isMotionReduced = getIsMotionReduced();
+    const isHighContrast = getIsHighContrast();
     const colors = isHighContrast ?
         COLORS_FOR_DIFFICULTIES.contrast : COLORS_FOR_DIFFICULTIES.regular;
 

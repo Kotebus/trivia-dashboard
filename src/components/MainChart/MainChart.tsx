@@ -1,8 +1,8 @@
-import {type JSX, use, useCallback} from "react";
+import {type JSX, useCallback} from "react";
 import {Bar, BarChart, Cell, Tooltip, XAxis, YAxis} from 'recharts';
 import type {BarRectangleItem} from "recharts/types/cartesian/Bar";
-import {AccessibilityContext} from "../../providers/AccessibilityProvider/AccessibilityContext.tsx";
 import type {ChartDataItem} from "../../types/ChartDataItem.ts";
+import {getIsMotionReduced} from "../../utils.ts";
 import {VisuallyHidden} from "../VisuallyHidden/VisuallyHidden.tsx";
 import styles from "./MainChart.module.css"
 
@@ -19,7 +19,6 @@ interface Props {
 const formatNameInXAxis = (name: string) => name.length > MAX_NAME_LENGTH ? name.slice(0, MAX_NAME_LENGTH) + "..." : name;
 
 export const MainChart = ({chartData, activeIndex, setActiveIndex}: Props): JSX.Element => {
-    const accessibilityContext = use(AccessibilityContext);
 
     const handleOnBarClick = useCallback(
         ((_: BarRectangleItem, index: number) => setActiveIndex(index)),
@@ -30,7 +29,7 @@ export const MainChart = ({chartData, activeIndex, setActiveIndex}: Props): JSX.
         return (<div>No data to display.</div>);
     }
 
-    const isMotionReduced = accessibilityContext?.isMotionReduced ?? false;
+    const isMotionReduced = getIsMotionReduced();
 
     return (
         <figure className={styles.figure}>

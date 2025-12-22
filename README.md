@@ -18,10 +18,6 @@ filtering capabilities.
 
 ## Architecture
 
-### Providers
-
-- `AccessibilityProvider` - manages accessibility settings throughout the application
-
 ### Components
 
 - [Dashboard.tsx](src/components/Dashboard/Dashboard.tsx) - main component with data fetching and visualization
